@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Research - Adam O'Brien</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Adam O'Brien</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="#">Research</a>
+                </li>
+                <li>
+                    <a href="#">Curriculum Vitae</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Research
+                <small>Synopsis of research related activities</small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- LATTE -->
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Motivation</h3>
+
+            <p>
+                Fluid-fluid interfaces play a dominant role in the behaviour of many industrial processes, in particular
+                those that involve the coating (wetting) or separation (de-wetting) of particles. Examples of such
+                processes include the extraction of bitumen from the tar sands, fabrication by ink-jet printing, drug
+                delivery from micro- and nano-capsules, production of food such as ice cream and the stabilization of
+                foams and emulsions. As such, developing a fundamental understanding of the underlying physics behind
+                particles at fluid-fluid interfaces has obvious economic upside. Also, as environmental regulations
+                around the world become stricter, there is pressure to move away from the use of traditional synthetic
+                surfactants to control interface stability and substitute environmentally friendly alternatives. One
+                such promising alternative is the use of biodegradable micro- or nano-particles that become trapped at
+                the fluid-fluid interface. To date, the study of particles at fluid-fluid interfaces has been largely
+                relegated to experiments. The increasing availability of computational resources, as well as improved
+                numerical algorithms, makes the use of Computational Fluid Dynamics (CFD) another attractive alternative
+                for a fundamental study of particles at fluid-fluid interfaces. The advantages of CFD include a high
+                degree of control over simulation conditions, as well as the ability to extract any solution variables of
+                interest from the domain with much greater ease than taking experimental measurements. Many algorithmic
+                challenges exist, however, in particular the moving boundary problem for finite size particles. While
+                attempts have been made to address this issue through the use of a re-meshing scheme, Immersed Boundary
+                (IB) methods are another possibility for modelling the solid particles within the computational domain,
+                which enjoy a considerable advantage in terms of time relative to re-meshing approaches.
+            </p>
+
+            <h3>Objective</h3>
+
+            <p>
+                The objective of this research is to investigate the interactions of particles near immiscible
+                fluid-fluid interfaces, by developing a multiphase flow solver complete with a Direct Forcing (DF)
+                immersed boundary method, which is capable of resolving the coupling between the flow solver and the
+                solid body motion of the particle. The IB method to be used will be similar to Fluid-Structure
+                Interaction (FSI) solver of Calderer et al., with the interfacial body forces computed in the manner
+                proposed by Montazeri et al.. In addition to this, it is proposed to develop a fully coupled implicit
+                framework such as those developed by Denner et al. and Darwish et al., rather than employ the standard
+                approach to IB simulations where an un-coupled algorithm such as SIMPLE is used. The motivation behind
+                this is to improve the coupling between body forces and the pressure field, which is key in reducing the
+                magnitude of spurious currents in simulations with fluid-fluid interfaces. To the best of my knowledge,
+                no such attempt to develop a fully-implicit, coupled solver for the solution of fluid-particle
+                interactions at a fluid-fluid interfaces using an IB method has been made. In addition to the
+                development of the solver, a number of applications will be investigated, in particular attempting to
+                simulate various common experimental scenarios. The study of such experimental cases serves as both a
+                method of validation for the numerical solver, as well as a method for studying fluid-particle
+                interactions at fluid-fluid interfaces on scales that would be very difficult experimentally, perhaps
+                providing new insight into the underlying physics.
+            </p>
+
+            <h3>Current Progress</h3>
+
+            <p>
+                To date, a fully three dimensional incompressible Navier-Stokes solver, similar to the framework
+                proposed by Darwish et al. has been developed with immersed boundary capability. The immersed boundary
+                method is based on a direct forcing approach similar to that proposed by Borazjani et al.. The framework,
+                denoted as “Computational Algorithms Framework for Fluid Equations” (CAFFE), serves as a lightweight
+                platform for the development and testing of immersed boundary approaches and numerical solvers. The
+                solver uses a Dual Time-Stepping (DTS) scheme, with a Generalized Minimum RESidual (GMRES) iterative
+                technique used to solve each of the sparse sets of linear equations arising from the momentum and
+                pressure poisson equation at each inner iteration. In order to solve linear equations, the parallel
+                GMRES solvers in the freely available PETSc library are used.
+            </p>
+
+            <p>
+                In addition to the development of the above framework, simulations conducted using OpenFOAM with
+                immersed boundaries have been conducted for simple cases of flow around a cylinders/spheres. As the
+                project progresses, development will be focused around the OpenFOAM framework, due to the broad
+                availability of numerical tools within.
+            </p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Adam O'Brien 2015</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

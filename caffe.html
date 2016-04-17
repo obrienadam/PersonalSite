@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CAFFE - Adam O'Brien</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Adam O'Brien</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="research.html">Research</a>
+                </li>
+                <li>
+                    <a href="#">Curriculum Vitae</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">CAFFE
+                <small>Computational Algorithms Framework for Fluid Equations</small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>About</h3>
+            <p>
+                Computational Algorithms Frame for Fluid Equations (CAFFE) is open source software I developed for my PhD
+                project, designed to provide a flexible framework for solving coupled transport equations using a
+                finite-volume approach. The software supports arbitrarily shaped hexahedral meshes, MPI block-based
+                parallelization, and a fully implicit solution method. A Git repository for the source code can be found
+                here. The code is still in early development, but is already able to solve a variety of incompressible fluid
+                mechanics problems.
+            </p>
+
+            <p>
+                At the present moment, development of CAFFE is focused on implementing a direct forcing immersed boundary
+                method for the simulation of particles interacting with fluid interfaces.
+            </p>
+
+            <h3>Installation</h3>
+
+            <p>
+                CAFFE depends on the following third-party development libaries:
+            <ul>
+            <li>
+                CMake 2.8.11
+            </li>
+            <li>
+                Boost 1.53
+            </li>
+            <li>
+                Petsc 3.4
+            </li>
+            <li>
+                BLAS/LAPACK 3.5.0
+            </li>
+            <li>
+                An Message Passing Interface (MPI) implementation, eg. MPICH 3.1
+            </li>
+            </ul>
+            </p>
+
+            <p>
+                The most recent version can be found <a href="https://www.github.com/obrienadam/CAFFE">here</a>. To clone
+                this repository, open a terminal and type the commmand:
+            </p>
+
+            <p>
+                <samp>> git clone https://www.github.com/obrienadam/CAFFE</samp>
+            </p>
+
+            <p>
+                Then, assuming that the repository was cloned into the home directory, navigate to the project directory:
+            </p>
+
+            <p>
+                <samp>> cd ~/CAFFE</samp>
+            </p>
+
+            <p>
+                and run the command
+            </p>
+
+            <p>
+                <samp>> cmake CMakeLists.txt -DCMAKE_BUILD_TYPE=Release</samp>
+            </p>
+
+            <p>
+                to generate the make files. Then, build the project with
+            </p>
+
+            <p>
+                <samp>> make all</samp>
+            </p>
+
+            <p>
+                The solver binaries will be placed into <samp>$HOME/CAFFE/Modules</samp>. In order to run a case, such
+                as the 3D lid driven cavity case, navigate to the case directory:
+            </p>
+
+            <p>
+                <samp>> cd ~/CAFFE/ExampleCases/Cavity3D</samp>
+            </p>
+
+            <p>
+                and execute the desired solver from the case directory; for example:
+            </p>
+
+            <p>
+                <samp>> ~/CAFFE/Modules/caffePiso</samp>
+            </p>
+        </div>
+        <div class="col-md-12">
+            <h3>Media</h3>
+            <p>
+                The following video demonstrates unsteady flow over a sphere placed within a walled channel.
+            </p>
+            <p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/hdaHSn2HPNM" frameborder="0"
+                    allowfullscreen class="center-block gap-top"></iframe>
+            </p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Adam O'Brien 2015</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
