@@ -91,20 +91,22 @@
                 code can be used for the momentum equation:
             </p>
 
-            <p>
-                <code>(fv::ddt(rho, u) + fv::div(rho*u, u) == fv::laplacian(mu, u) - fv::grad(p) + fv::source(rho*g)).solve()</code>
-            </p>
+            <pre class="prettyprint lang-cpp linenums">
+uEqn_ = (fv::ddt(rho, u, timeStep) + fv::div(rho*u, u) == fv::laplacian(mu, u) - fv::grad(p));
+uEqn_.relax(omegaMomentum_);
+double error = uEqn_.solve();</pre>
 
             <p>
                 And, for the pressure correction equation:
             </p>
 
-            <p>
-            <code>(fv::laplacian(rho*d, pCorr) == m).solve()</code>
-            </p>
+            <pre class="prettyprint lang-cpp linenums">
+pCorrEqn_ = (fv::laplacian(rho*d, pCorr) == m);
+double error = pCorrEqn_.solve();</pre>
 
             <p>
-                The <code>fv</code> namespace contains all of the standard finite-volume operators. Users can easily define
+                The <code class="prettyprint lang-cpp">fv</code> namespace contains all of the standard finite-volume
+                operators. Users can easily define
                 their own discretization schemes for either advection or diffusion and combine them with the operators that
                 already exist within the framework.
             </p>
@@ -209,6 +211,9 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+
+<!-- google code-prettify -->
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
 </body>
 
